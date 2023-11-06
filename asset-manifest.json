@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/viportfolio/static/css/main.e6c13ad2.css",
+    "main.js": "/viportfolio/static/js/main.afde6456.js",
+    "static/js/787.08fbd692.chunk.js": "/viportfolio/static/js/787.08fbd692.chunk.js",
+    "index.html": "/viportfolio/index.html",
+    "main.e6c13ad2.css.map": "/viportfolio/static/css/main.e6c13ad2.css.map",
+    "main.afde6456.js.map": "/viportfolio/static/js/main.afde6456.js.map",
+    "787.08fbd692.chunk.js.map": "/viportfolio/static/js/787.08fbd692.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e6c13ad2.css",
+    "static/js/main.afde6456.js"
+  ]
+}
