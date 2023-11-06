@@ -76,8 +76,7 @@ export default function AboutMe() {
           >
             Hi, My name is Vi and I'm currently a second year software engineer
             student at FPT University. I'm a self-taught self-motivated web
-            developer and I'm passionate about learning new things and building
-            new things.
+            developer and I'm passionate about learning and building new things.
           </Typography>
         </Box>
       </Box>

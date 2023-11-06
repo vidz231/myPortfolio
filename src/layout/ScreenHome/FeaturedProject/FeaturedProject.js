@@ -1,12 +1,34 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Box, Button, Typography } from '@mui/material';
-import { useNavigate } from 'react-router-dom';
-
+import { useLocation, useNavigate } from 'react-router-dom';
+import { getPublicResp } from '../../ScreenProjects/ProjectServices.js';
+import ProjectCard from '../../ScreenProjects/ProjectCard.js';
 export default function FeaturedProject() {
   const nav = useNavigate();
+  const [data, setData] = useState([]);
+  const loc = useLocation();
   const HandleClick = () => {
     nav('/Project');
   };
+  const [isLoading, setIsLoading] = useState(true);
+  useEffect(() => {
+    setIsLoading(false);
+    if (!loc?.state) {
+      import('../../ScreenProjects/ProjectServices.js').then((res) => {
+        res.getPublicResp().then((dt) => {
+          if (Array.isArray(dt)) {
+            setData(dt);
+            console.log(data);
+            dt.forEach((item) => {
+              console.log(item.name);
+            });
+
+            setIsLoading(false);
+          }
+        });
+      });
+    }
+  }, [loc?.state]);
   return (
     <Box
       sx={{
@@ -39,16 +61,22 @@ export default function FeaturedProject() {
       {/* </Box> */}
       <Box sx={{ flexBasis: '48%' }}>
         {/* todo: add image card here pls */}
-        <img
-          // srcSet={`${item.img}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
-          src={
-            'https://wallpapers.com/images/featured/horizon-background-7fir6kqabih2ir2k.jpg'
-          }
-          alt="horizon-background-7fir6kqabih2ir2k.jpg"
-          loading="lazy"
-          width={'100%'}
-          height={'100%'}
-        />
+        {/* <Typography>asdas</Typography> */}
+        {isLoading ? (
+          <Typography variant="h4">Loading...</Typography>
+        ) : (
+          data?.map((item) => {
+            return (
+              <ProjectCard
+                name={item.name}
+                reLink={item.html_url}
+                technology={item.language}
+                description={item.description}
+              />
+            );
+          })
+        )}
+        <Typography>asd</Typography>
       </Box>
     </Box>
   );
