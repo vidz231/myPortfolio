@@ -1,25 +1,44 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import NavBar from './layout/ScreenHome/NavBar';
+import ScreenAbout from './layout/ScreenAbout/ScreenAbout';
+import ScreenAdmin from './layout/ScreenAdmin/ScreenAdmin';
+import ScreenHome from './layout/ScreenHome/ScreenHome';
+import {
+  Box,
+  Container,
+  Grid,
+  ThemeProvider,
+  createTheme,
+} from '@mui/material';
+import Footer from './component/Footer/Footer';
+import { themeOptions } from './component/theme/ThemeOptions';
+import ScreenProjects from './layout/ScreenProjects/ScreenProjects';
 
-function App() {
+export default function App() {
+  const theme = createTheme(themeOptions);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <ThemeProvider theme={theme}>
+        <BrowserRouter>
+          <NavBar />
+          <Grid container collum spacing={1}>
+            <Grid item xs={12}>
+              <Box sx={{ minHeight: '89.3vh' }}>
+                <Routes>
+                  <Route path="/" element={<ScreenHome />} />
+                  <Route path="/Project" element={<ScreenProjects />} />
+                  <Route path="/admin" element={<ScreenAdmin />} />
+                </Routes>
+              </Box>
+            </Grid>
+            <Grid item xs={12}>
+              <Footer />
+            </Grid>
+          </Grid>
+        </BrowserRouter>
+      </ThemeProvider>
+    </>
   );
 }
-
-export default App;
