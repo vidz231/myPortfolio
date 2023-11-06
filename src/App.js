@@ -28,7 +28,7 @@ export default function App() {
               <Box sx={{ minHeight: '89.3vh' }}>
                 <Routes>
                   <Route path="/" element={<ScreenHome />} />
-                  <Route path="/Project" element={<ScreenProjects />} />
+                  <Route path="/project" element={<ScreenProjects />} />
                   <Route path="/admin" element={<ScreenAdmin />} />
                 </Routes>
               </Box>
