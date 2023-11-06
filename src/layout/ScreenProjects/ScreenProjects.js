@@ -37,6 +37,7 @@ export default function ScreenProjects() {
             flexFlow: 'row wrap',
             justifyContent: 'space-evenly',
             alignItems: 'flex-start',
+            rowGap: '2rem',
           }}
         >
           {!isLoading &&
