@@ -39,6 +39,7 @@ export default function AboutMe() {
               justifyContent: 'space-between',
               width: '100%',
               height: '80%',
+              rowGap: '10px',
             }}
           >
             <AboutMeCard

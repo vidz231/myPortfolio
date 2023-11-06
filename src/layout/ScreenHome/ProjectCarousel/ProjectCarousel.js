@@ -1,7 +1,9 @@
 import { Box, Button, Typography, useTheme } from '@mui/material';
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export default function ProjectCarousel() {
+  const nav = useNavigate();
   return (
     <>
       <Box
@@ -27,6 +29,9 @@ export default function ProjectCarousel() {
             color="primary"
             size="medium"
             sx={{ width: '20vw', margin: '0 auto' }}
+            onClick={() => {
+              nav('/project');
+            }}
           >
             View Projects
           </Button>

@@ -37,6 +37,7 @@ export default function FeaturedProject() {
         height: '40vh',
         justifyContent: 'space-evenly',
         flexFlow: 'row nowrap',
+        marginTop: '1%',
       }}
     >
       <Box
@@ -62,21 +63,31 @@ export default function FeaturedProject() {
       <Box sx={{ flexBasis: '48%' }}>
         {/* todo: add image card here pls */}
         {/* <Typography>asdas</Typography> */}
-        {isLoading ? (
-          <Typography variant="h4">Loading...</Typography>
-        ) : (
-          data?.map((item) => {
-            return (
-              <ProjectCard
-                name={item.name}
-                reLink={item.html_url}
-                technology={item.language}
-                description={item.description}
-              />
-            );
-          })
-        )}
-        <Typography>asd</Typography>
+        <Box
+          sx={{
+            display: 'flex',
+            flexFlow: 'row wrap',
+            justifyContent: 'space-evenly',
+            alignItems: 'center',
+          }}
+        >
+          {isLoading ? (
+            <Typography variant="h4">Loading...</Typography>
+          ) : (
+            data?.map((item) => {
+              return (
+                // <Box sx={{ flexBasis: '100%' }}>
+                <ProjectCard
+                  name={item.name}
+                  reLink={item.html_url}
+                  technology={item.language}
+                  description={item.description}
+                />
+                // </Box>
+              );
+            })
+          )}
+        </Box>
       </Box>
     </Box>
   );
