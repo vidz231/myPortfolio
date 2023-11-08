@@ -2,6 +2,7 @@ import React, { Suspense, lazy, useEffect, useState } from 'react';
 import { getPublicResp } from './ProjectServices';
 import { Box, CircularProgress, Container, Typography } from '@mui/material';
 import { useLocation } from 'react-router-dom';
+import DemoChat from './DemoChat';
 const ProjectCard = lazy(() => import('./ProjectCard'));
 export default function ScreenProjects() {
   const [data, setData] = useState([]);

@@ -14,14 +14,15 @@ import {
 import Footer from './component/Footer/Footer';
 import { themeOptions } from './component/theme/ThemeOptions';
 import ScreenProjects from './layout/ScreenProjects/ScreenProjects';
+import DemoChat from './layout/ScreenProjects/DemoChat';
 
 export default function App() {
   const theme = createTheme(themeOptions);
-
   return (
     <>
       <ThemeProvider theme={theme}>
         <BrowserRouter>
+          <DemoChat />
           <NavBar />
           <Grid container collum spacing={1}>
             <Grid item xs={12}>
